@@ -11,4 +11,12 @@ sh 'mvn package'
 Regards,
 Jitendra''', cc: 'jitulovesmom@gmail.com', from: '', replyTo: '', subject: 'Jenkins Job', to: 'jitulovesmom@gmail.com'
   }
+  
+  stage('Slack Notification'){
+    slackSend baseUrl: 'https://hooks.slack.com/services/',
+      channel: '#jenkins-pipeline-demo',
+      color: 'good', 
+      message: 'Welcome to jenkins slack',
+      tokenCredentialId: 'slack-demo'
+  }
 }
